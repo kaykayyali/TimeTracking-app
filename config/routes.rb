@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   get '/projects' => 'projects#index'
   get '/projects/:id' => 'projects#show'
   get '/projects/:project_id/entries' => 'entries#index'
+  get '/projects/:project_id/entries/new' => 'entries#new'
+  post '/projects/:project_id/entries' => 'entries#create',  :as => 'project_entries' 
 
+ 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
