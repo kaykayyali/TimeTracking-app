@@ -4,6 +4,14 @@
 
 </h1>
 
+	<% if @entry.errors.any? %>
+	<ul>
+		<% @entry.errors.full_messages.each do |error| %>
+		<li> <%= error%></li>
+		<% end%>
+	</ul>
+	<%end%>
+<div class="form-group has-validation">
 	<%= form_for([@project, @entry]) do |f| %>
 		<%= f.label :hours %> 
 		<%= f.text_field :hours %>
@@ -12,7 +20,13 @@
 		<%= f.text_field :minutes %>
 		<br>
 		<%= f.label :date %> 
-		<%= f.text_field :date %>
+		<%= f.date_field :date %>
 		<br>
+		<%= f.label :comment %> 
+		<br>
+		<%= f.text_field :comment %>
+		<br>
+
 		<button type="submit">Create New Entry</button>
 	<% end%>
+	</div>
