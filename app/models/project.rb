@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
 has_many :entries
  
+ 	validates :name, uniqueness: true, presence: true, length: {maximum:30}
+
+
 	def self.show_all
 		projects = Project.all
 		
