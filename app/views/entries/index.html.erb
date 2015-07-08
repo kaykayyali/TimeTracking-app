@@ -1,12 +1,16 @@
-<h1>Entries Index</h1>
+<h1 style="text-align: center;">Entries Index</h1>
 <h3>Project Name - <%= @project.name %></h3>
 <ul>
 	<% @entries.each do |entry| %>
 	<li>
-		<%= entry.comment %> -
+		<a href="<%= edit_project_entry_path(@project, entry)%>"><%= entry.comment %></a> -
 		 Hours: <%= entry.hours %>
 		 Minutes: <%= entry.minutes %>
 		
 	</li>
 	<% end%>
 </ul>
+
+<a href="/projects/<%= @project.id%>/entries/new">Add new entry</a>
+<br>
+<a href="<%= projects_path %>">Back to projects index</a>

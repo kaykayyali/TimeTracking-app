@@ -7,7 +7,24 @@ class EntriesController < ApplicationController
 		render "new"
 	end
 
+	def edit 
+		@project = Project.find(params[:project_id])
+		@entry = @project.entries.find(params[:id])
+		render "edit"
+	end
 
+	def update
+		
+		@entry = Entry.find(params[:id])
+
+		if @entry.update_attributes(entry_params)
+			redirect_to action: 'index'
+		else
+			render 'edit'
+		end
+
+
+	end
 
 
 

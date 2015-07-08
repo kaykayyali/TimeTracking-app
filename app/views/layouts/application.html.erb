@@ -7,18 +7,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
-<body style="background-color: grey;">
+<body style="background-color: lightgrey;">
 	<div class="container-fluid">
 		
+				\
 
-				<div class="col-lg-4"></div>
+						<div class="col-lg-4"></div>
 
-				<div class="col-lg-4">
-					<%= yield %>
-				</div>
-			
-				<div class="col-lg-4">
-				</div>
+						<div class="col-lg-4">
+							<div class="panel panel-default">
+  								<div class="panel-body">
+							<%= yield %>
+								</div>
+							</div>
+						</div>
+					
+						<div class="col-lg-4">
+						</div>
 		
 	</div>
 </body>

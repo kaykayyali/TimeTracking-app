@@ -9,7 +9,7 @@ has_many :entries
 		
 	end
 	def self.last_created(n)
-		return Project.order(:created_at => :desc).limit(n)
+		return Project.order(:created_at => :asc).limit(n)
 	end
 
 	def self.clean_old
