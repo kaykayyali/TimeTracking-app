@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   get '/' => 'site#home'
   get '/contact' => 'site#contact'
-
+  get '/projects' => 'projects#index'
+  get '/projects/:id' => 'projects#show'
+  get '/projects/:project_id/entries' => 'entries#index'
 
 
   # Example of regular route:

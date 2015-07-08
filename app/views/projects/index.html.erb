@@ -1,0 +1,22 @@
+<h1>Projects</h1>
+<p>Your projects:</p>
+
+
+
+	<% @projects.each do |prj|%>
+	<label> Project ID :<%= prj.id %> </label>
+		<ul>
+			<li> 
+				<%= prj.name %>
+				
+				<%if prj.description.present? %>
+				-
+					<%= prj.description %> 
+				<% end %>	
+			</li>
+			
+		</ul>
+				 <% end %>
+		
+	
+		

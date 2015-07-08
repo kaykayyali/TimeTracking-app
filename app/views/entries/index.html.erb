@@ -1,0 +1,12 @@
+<h1>Entries Index</h1>
+<h3>Project Name - <%= @project.name %></h3>
+<ul>
+	<% @entries.each do |entry| %>
+	<li>
+		<%= entry.comment %> -
+		 Hours: <%= entry.hours %>
+		 Minutes: <%= entry.minutes %>
+		
+	</li>
+	<% end%>
+</ul>
