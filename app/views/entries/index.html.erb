@@ -1,6 +1,6 @@
 <h1 style="text-align: center;">Entries Index</h1>
 <h3>Project Name - <%= @project.name %></h3>
-
+<%= render('form') %>
 <% if flash[:notice] %> 
 <div class="alert alert-success" role="alert">
   <%= flash[:notice] %> 
@@ -19,6 +19,7 @@
 		<a href="<%= edit_project_entry_path(@project, entry)%>"><%= entry.comment %></a> -
 		 Hours: <%= entry.hours %>
 		 Minutes: <%= entry.minutes %>
+		 <!-- Date --> <%= pretty_date(entry.date) %>
 		<button class= "btn btn-danger btn-xs pull-right">
 		<%= link_to('Delete', project_entry_path(@project, entry), :method => :delete, :data => {confirm: 'Are you sure?'}) %>
 		</button>
