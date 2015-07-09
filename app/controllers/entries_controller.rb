@@ -18,6 +18,7 @@ class EntriesController < ApplicationController
 		@entry = Entry.find(params[:id])
 
 		if @entry.update_attributes(entry_params)
+			flash[:notice] = "Updated!"
 			redirect_to action: 'index'
 		else
 			render 'edit'
@@ -26,12 +27,20 @@ class EntriesController < ApplicationController
 
 	end
 
+	def destroy
+		
+		@entry = Entry.find(params[:id])
+		@entry.destroy
+		flash[:alert] = "DELETED!"
+		redirect_to(project_entries_path)
+	end
 
 
 
 	def index
 		@project = Project.find(params[:project_id])
 		@entries = @project.entries
+		
 
 		render 'index'
 	end
@@ -41,9 +50,10 @@ class EntriesController < ApplicationController
 		@entry = @project.entries.new(entry_params)
 
 		if @entry.save 
+			flash[:notice] = "Added new entry!"
 			redirect_to action: 'index', controller: 'entries', project_id: @project.id
 		else 
-			
+			flash[:alert] = "Creation Failed."
 			render 'new'
 		end
 	end

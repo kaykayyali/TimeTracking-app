@@ -1,12 +1,13 @@
-<h1 style="text-align: center;">Projects</h1>
-
+<div class="page-header">
+	<h1 style="text-align: center;">Projects</h1>
+</div>
 
 
 
 	<% @projects.each do |prj|%>
 	<label> Project ID :<%= prj.id %> </label>
-		<ul>
-			<li> 
+		<ul class="list-group">
+			<li class="list-group-item"> 
 				<a href= "<%=project_entries_path(prj)%>"><%= prj.name %></a>
 				
 				<%if prj.description.present? %>

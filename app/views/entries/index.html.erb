@@ -1,12 +1,27 @@
 <h1 style="text-align: center;">Entries Index</h1>
 <h3>Project Name - <%= @project.name %></h3>
-<ul>
+
+<% if flash[:notice] %> 
+<div class="alert alert-success" role="alert">
+  <%= flash[:notice] %> 
+  </div>
+  <% end %> 
+  <% if flash[:alert] %> 
+<div class="alert alert-danger" role="alert">
+  <%= flash[:alert] %> 
+  </div>
+<% end %> 
+
+
+<ul class="list-group">
 	<% @entries.each do |entry| %>
-	<li>
+	<li  class="list-group-item">
 		<a href="<%= edit_project_entry_path(@project, entry)%>"><%= entry.comment %></a> -
 		 Hours: <%= entry.hours %>
 		 Minutes: <%= entry.minutes %>
-		
+		<button class= "btn btn-danger btn-xs pull-right">
+		<%= link_to('Delete', project_entry_path(@project, entry), :method => :delete, :data => {confirm: 'Are you sure?'}) %>
+		</button>
 	</li>
 	<% end%>
 </ul>
